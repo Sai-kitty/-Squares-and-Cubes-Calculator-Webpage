@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculation</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .container{
+            text-align: center;
+            font-family:Arial, Helvetica, sans-serif;
+            justify-content: center;
+            align-items: center;
+            background-color:lightgoldenrodyellow;
+            margin: 20px;
+            border-radius:10%;
+            border-color: black;
+            width:95vw;
+            border-style: solid;
+            
+        }
+        table, th, td {
+               border: 1px solid rgb(19, 183, 46);
+               border-collapse: collapse;
+               border-width:0px;
+               border-radius: 10%;
+               text-align: center;
+               padding: 8px;    
+               margin-left: 42%;
+               margin-top: 20px;     
+               margin-bottom: 20px;      
+         }
+        th{color:aliceblue;background-color: black;}
+        td{color:black;background-color: rgb(45, 204, 178);font-weight: bold;}
+        .button{
+            padding:5px;
+            border-radius: 10%;
+            background-color: blue;
+            text-align: center;
+            color: chartreuse;
+            font-weight: bold;
+            border-width: 0px;
+            height: 38px;
+            width: 85px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Squares and Cubes calculator</h1>
+        <p>Enter a range (e.g., 0 to 10) or leave empty for the default range (0 to 10): </p>       
+        <input type="number" id="last"><br><br>
+        <button class="button" onclick="calculateSquares()">calculate</button>
+        <table id="result"></table>
+    </div>
+
+    <script>
+         function calculateSquares()
+         {
+            let rangeValue=document.getElementById("last").value;
+            rangeValue=parseInt(rangeValue);
+            const range = rangeValue ? parseInt(rangeValue) : 10;
+            let resultHTML="<table ><tr><th>Number</th><th>Square</th><th>Cube</th></tr>";
+            for(let i=0;i<=range;i++)
+            {
+                const Square=i*i;
+                const cube=i*i*i;
+                resultHTML += `<tr><td>${i}</td><td>${Square}</td><td>${cube}</td></tr>`;
+            }
+            resultHTML+="</table>";
+            document.getElementById("result").innerHTML=resultHTML;
+         }
+    </script>
+</body>
+</html>
